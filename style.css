@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;900&display=swap');
+
+/* variable-css */
+:root{
+    --header-height:3.5rem;
+
+    /* colors */
+    --hue:14;
+    --first-color:hsl(var(--hue),91%,54%);
+    --first-color-alt:hsl(var(--hue),91%,50%);
+    --title-color:hsl(var(--hue),4%,100%);
+    --text-color:hsl(var(--hue),4%,85%);
+    --text-color-light:hsl(var(--hue),4%,55%);
+    --body-color:linear-gradient(90deg,hsl(104,28%,40%) 0%, hsl(58,28%,40%) 100%);
+    --container-color:linear-gradient(136deg,hsl(104,28%,35%) 0%, hsl(58,28%,35%) 100%);
+
+    /* font-and-topography */
+    --body-font: 'Poppins',sans-serif;
+    --biggest-font-size:2rem;
+    --h1-font-size:1.5rem;
+    --h2-font-size:1.25rem;
+    --h3-font-size:1rem;
+    --normal-font-size:0.938rem;
+    --small-font-size:0.813rem;
+    --smaller-font-size:0.75rem;
+
+    /* font-weight */
+    --font-medium:500;
+    --font-semi-bold:600;
+    --font-black:900;
+
+    /* Margenes-Bottom */
+    --mb-0-25:0.25rem;
+    --mb-0-5:0.5rem;
+    --mb-0-75:0.75rem;
+    --mb-1:1rem;
+    --mb-1-5:1.5rem;
+    --mb-2:2rem;
+    --mb-2-5:2.5rem;
+
+    /* z-index */
+    --z-tooltip:10;
+    --z-fixed:100;
+}
+
+/* Responsive-typography */
+@media screen and (min-width:992px) {
+    :root{
+        --biggest-font-size:4rem;
+        --h1-font-size:2.25rem;
+        --h2-font-size:1.5rem;
+        --h3-font-size:1.25rem;
+        --normal-font-size:1rem;
+        --small-font-size:0.938rem;
+        --smaller-font-size:0.813rem;
+    }
+}
+
+
+/* --------BASE------- */
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    margin: var(--header-height) 0 0 0;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background: var(--body-color);
+    color: var(--text-color);
+}
+
+h1,h2,h3,h4{
+    color:var(--title-color);
+    font-weight: var(--font-semi-bold);
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+img{
+    max-width: 100%;
+}
+
+button,input{
+    border: none;
+    outline: none;
+}
+
+button{
+    cursor:pointer;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+}
+
+/* --------Resuable CSS Classes -----*/
+.section{
+    padding: 4.5rem 0 2rem;
+}
+
+.section_title{
+    font-size: var(--h2-font-size);
+    margin-bottom: var(--mb-2);
+    text-align: center;
+}
+
+/*----------- Layout--------- */
+.container{
+    max-width: 968px;
+    margin-left: var(--mb-1-5);
+    margin-right: var(--mb-2-5);
+}
+
+.grid{
+    display: grid;
+}
+
+.main{
+    overflow:hidden; /*for-animation */
+}
+
+/* ------------header----------- */
+.header
+{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: var(--body-color);
+    z-index: var(--z-fixed);
+}
+
+/* -----------nav------------- */
+.nav{
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav_logo{
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+    font-weight: var(--font-medium);
+}
+
+.nav_logo_img{
+    width: 1.25rem;
+}
+
+.nav_link,
+.nav_logo,
+.nav_toggle,
+.nav_close{
+    color: var(--title-color);
+}
+
+.nav_toggle{
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+
+@media screen and (max-width:767px){
+    .nav_menu{
+        position: fixed;
+        width: 100%;
+        background: var(--container-color);
+        top: -150%;
+        left: 0;
+        padding: 3.5rem 0;
+        transition: 0.4s;
+        z-index: var(--z-fixed);
+        border-radius: 0 0 1.5rem 1.5rem;
+    }
+}
+
+.nav_img{
+    width: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.nav_close{
+    font-size: 1.8rem;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.7rem;
+    cursor:pointer;
+}
+
+.nav_list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1.5rem;
+}
+
+.nav_link{
+    text-transform: uppercase;
+    font-weight: var(--font-black);
+    transition: 0.4s;
+}
+
+.nav_link:hover{
+    color: var(--text-color);
+
+}
+
+/*----------show-menu------*/
+.show-menu{
+    top: 0;
+}
+
+/* --------------home-------- */
+.home_content{
+    row-gap: 1rem;
+}
+
+.home_group{
+    display:grid;
+    position: relative;
+    padding-top: 2rem;
+}
+
+.home_img{
+    height: 250px;
+    justify-self: center;
+}
+
+.home_indicator{
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--title-color);
+    position: absolute;
+    top: 7rem;
+    right:2rem;
+}
+
+.home_indicator::after{
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 48px;
+    background-color: var(--title-color);
+    top: -3rem;
+    right: 45%;
+}
